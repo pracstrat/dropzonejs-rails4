@@ -1,24 +1,64 @@
 # Dropzonejs::Rails4
 
-TODO: Write a gem description
+Integrate [Matias Meno's Dropzone](http://www.dropzonejs.com/) awesome file upload JS library right into the Asset pipeline of your Rails apps.
 
-## Installation
+## Installation and usage
 
-Add this line to your application's Gemfile:
+First add `dropzonejs-rails4` to your Gemfile and, as you already know, `bundle` it and then restart your Rails app:
 
-    gem 'dropzonejs-rails4'
+```ruby
+# On your Gemfile
+gem 'dropzonejs-rails4'
+```
 
-And then execute:
+```bash
+$ bundle install
+```
 
-    $ bundle
+After that, you need to make `dropzone.js` available on your pages. To do that, you can add it to your `application.js` file, like this:
 
-Or install it yourself as:
+```javascript
+//= require dropzonejs/dropzone
+```
 
-    $ gem install dropzonejs-rails4
+And if you would like to use one of the styles bundled with Dropzone, add to your `application.css`:
+```scss
+*= require dropzonejs/dropzone/basic
+```
+or
+```scss
+*= require dropzonejs/dropzone/dropzone
+```
 
-## Usage
+And that, add code to view
 
-TODO: Write usage instructions here
+The typical way of using dropzone is by creating a form element with the class dropzone
+```
+<form action="/file-upload" class="dropzone" id="my-awesome-dropzone"></form>
+
+```
+Alternatively you can create dropzones programmaticaly (even on non form elements) by instantiating the Dropzone class
+
+html
+```
+<form action="/file-upload" class="dropzone">
+  <div class="fallback">
+    <input name="file" type="file" multiple />
+  </div>
+</form>
+
+```
+ javascript
+```
+// Dropzone class:
+var myDropzone = new Dropzone("div#myId", { url: "/file/post"});
+```
+or if you use jQuery, you can use the jQuery plugin Dropzone ships with:
+```
+// jQuery
+$("div#myId").dropzone({ url: "/file/post" });
+```
+
 
 ## Contributing
 
