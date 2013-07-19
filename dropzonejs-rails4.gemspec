@@ -12,6 +12,7 @@ Gem::Specification.new do |spec|
   spec.summary     = %Q{Integration of Dropzonejs #{Dropzonejs::VERSION} with the Rails 4.0 asset pipeline}
   spec.description = %Q{This gem integrates Dropzonejs #{Dropzonejs::VERSION} with the Rails 4.0 asset pipeline.}
   spec.rubyforge_project = "dropzonejs-rails4"
+  spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
